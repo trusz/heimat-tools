@@ -1,0 +1,28 @@
+{
+  "name": "@heimtime/api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "test": "vitest --root ./src --watch",
+    "uilib": "npm run dev",
+    "build": "tsc --project .",
+    "dev": "tsc --project . --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4",
+    "vitest": "^0.27.0"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^2.32.2",
+    "@types/lodash": "^4.14.191",
+    "@xstate/svelte": "^2.0.1",
+    "lodash": "^4.17.21",
+    "svelte": "^3.54.0",
+    "xstate": "^4.35.4"
+  }
+}
