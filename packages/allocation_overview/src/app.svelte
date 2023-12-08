@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.pcss";
+    import "./app.pcss";
     import svelteLogo from './assets/svelte.svg'
     import viteLogo from '/vite.svg'
     import Counter from './lib/Counter.svelte'

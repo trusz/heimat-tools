@@ -1,8 +1,30 @@
-import "./app.pcss";
-import App from "./App.svelte";
+import App from './app.svelte'
+import * as pkg from "../package.json";
 
-const app = new App({
-  target: document.getElementById("app"),
-});
+export default class NewPlugin extends HTMLElement {
 
-export default app;
+	private app: App
+	
+	connectedCallback() {
+		this.attachShadow({ mode: "open" });
+		this.app = new App({
+			target: this.shadowRoot,
+			props: {
+				doc: this._doc
+			}
+		});
+
+		const style = document.createElement("style");
+        style.innerHTML = globalThis.pluginStyle[pkg.name];
+        this.shadowRoot.appendChild(style);
+	}
+
+	private _doc: XMLDocument
+	public set doc(newDoc: XMLDocument){
+		this._doc = newDoc
+		if(!this.app) { return }
+
+		this.app.$set({doc: newDoc})
+	}
+
+}
