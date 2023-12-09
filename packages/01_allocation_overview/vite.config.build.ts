@@ -20,5 +20,10 @@ export default defineConfig({
 			formats: ["es"],
 		},
 	},
+	resolve:{
+		alias:{
+			"$lib": "/src/lib",
+		},
+	}
 })
 	
