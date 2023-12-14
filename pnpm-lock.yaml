@@ -10,6 +10,9 @@ importers:
 
   packages/01_allocation_overview:
     dependencies:
+      '@heimtools/api':
+        specifier: file:../api
+        version: file:packages/api
       '@sveltejs/vite-plugin-svelte':
         specifier: ^3.0.1
         version: 3.0.1(svelte@4.2.7)(vite@4.5.1)
@@ -2102,3 +2105,17 @@ packages:
       y18n: 5.0.8
       yargs-parser: 21.1.1
     dev: true
+
+  file:packages/api:
+    resolution: {directory: packages/api, type: directory}
+    name: '@heimtools/api'
+    dependencies:
+      '@azure/msal-browser': 2.32.2
+      '@types/lodash': 4.14.191
+      '@xstate/svelte': 2.0.1(svelte@3.54.0)(xstate@4.35.4)
+      lodash: 4.17.21
+      svelte: 3.54.0
+      xstate: 4.35.4
+    transitivePeerDependencies:
+      - '@xstate/fsm'
+    dev: false
