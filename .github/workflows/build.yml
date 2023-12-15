@@ -52,7 +52,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git remote set-url origin https://git:${BUILD_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npx gh-pages --dist dist --dest packages/${{inputs.package-name}} --dotfiles -u "github-actions-bot <support+actions@github.com>"
         env:
-          BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
+          # BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
