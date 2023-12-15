@@ -6,14 +6,14 @@ on:
         required: true
         type: string
     secrets:
-      GITHUB_TOKEN:
+      BUILD_TOKEN:
         required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      PAT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
     steps:
       - name: Checkout oscd-plugins/main
         uses: actions/checkout@v3
@@ -47,7 +47,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git remote set-url origin https://git:${BUILD_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npx gh-pages --dist dist --dest packages/${{inputs.package-name}} --dotfiles -u "github-actions-bot <support+actions@github.com>"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
