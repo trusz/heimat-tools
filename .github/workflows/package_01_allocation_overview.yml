@@ -1,0 +1,15 @@
+name: "Package: 01 Allocation Overview"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/01_allocation_overview/**"
+jobs:
+  build:
+    uses: "./.github/workflows/build.yml"
+    with:
+      package-name: 01_allocation_overview
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
