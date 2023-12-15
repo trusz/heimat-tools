@@ -4,6 +4,7 @@ import * as pkg from "../../package.json"
 
 
 export default function init (): void {
+	console.log("import", import.meta)
     // exception: to bootstrap svelte
     // eslint-disable-next-line no-new
     new App({
@@ -35,8 +36,9 @@ function createStyleLinkElement(): HTMLElement{
 function generateStylePath(): string {
 	const srcUrl = new URL(import.meta.url)
 	const origin = srcUrl.origin
-	const stylePath = `${origin}/style.css`
+	const path = srcUrl.pathname.split("/").slice(0,-1).filter(Boolean).join("/")
 
+	const stylePath = `${origin}/${path}/style.css`
 	return stylePath
 }
 
