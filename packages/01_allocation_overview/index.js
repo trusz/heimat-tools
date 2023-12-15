@@ -63544,7 +63544,7 @@ class lk extends be {
 me(lk, {}, [], [], !0);
 const s$ = "0.0.1";
 function h$() {
-  new lk({
+  console.log("import", import.meta), new lk({
     target: document.getElementById("view-root"),
     props: {}
   });
@@ -63556,7 +63556,8 @@ function o$() {
   return n.rel = "stylesheet", n.type = "text/css", n.href = e, n.id = t, n;
 }
 function u$() {
-  return `${new URL(import.meta.url).origin}/style.css`;
+  const t = new URL(import.meta.url), e = t.origin, n = t.pathname.split("/").slice(0, -1).filter(Boolean).join("/");
+  return `${e}/${n}/style.css`;
 }
 export {
   h$ as default
