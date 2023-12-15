@@ -12,4 +12,4 @@ jobs:
     with:
       package-name: 01_allocation_overview
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BUILD_TOKEN: ${{ secrets.GITHUB_TOKEN }}
