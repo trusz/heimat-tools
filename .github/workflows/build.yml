@@ -48,7 +48,7 @@ jobs:
   
       - name: Build Plugin
         # run: pnpm -C ./packages/${{ inputs.package-name }} run build
-        run: pnpm run build
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -58,7 +58,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          # publish_dir: dist
+          publish_dir: packages/${{ inputs.package-name }}/dist
           destination_dir: packages/${{inputs.package-name}}
 
       # - name: Deploy to GitHub Pages
