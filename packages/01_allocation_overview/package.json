@@ -3,8 +3,9 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run build:lib",
+		"build": "npm run build:base && npm run build:lib",
 		"build:lib": "vite build --config vite.config.build.ts",
+		"build:base": "vite build",
 		"build:watch": "npm run build:lib -- --watch",
 		"preview": "NODE_ENV=development npm run build && concurrently 'npm:build:watch' 'npm:_preview'",
 		"_preview": "vite preview --config vite.config.build.ts --port 55522 --outDir dist",
