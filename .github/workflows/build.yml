@@ -12,6 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: packages/${{ inputs.package-name }}
     env:
       BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
     steps:
@@ -43,7 +47,8 @@ jobs:
         run: pnpm install 
   
       - name: Build Plugin
-        run: pnpm -C ./packages/plugins/${{ inputs.package-name }} run build
+        # run: pnpm -C ./packages/${{ inputs.package-name }} run build
+        run: pnpm run build
 
       - name: Deploy to GitHub Pages
         run: |
