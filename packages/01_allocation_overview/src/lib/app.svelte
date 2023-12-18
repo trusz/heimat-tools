@@ -3,7 +3,8 @@
     import { AppShell } from "$lib/components/ui/app-shell";
     import { Auth_Module, context_api_create, context_api_get, Allocation, Employee } from "@heimtools/api"
     import { Employee_List, type Allocation_Map } from "$lib/components/ui/employee_list"
-
+    import {filter_context_init} from "./filter"
+    import Sidebar from "./sidebar.svelte"
     
 
     // 
@@ -34,6 +35,8 @@
         api.jwt_set(jwt)
     }
 
+    filter_context_init()
+
     
 
     let emps: Employee[] = []
@@ -53,15 +56,22 @@
 
     }
 	init()
+
+
+    let group_by_project: boolean = false
     
 </script>
 
 <AppShell>
-    <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <h1 slot="header" class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         Allocation Overview
     </h1>
 
-    <Employee_List employees={emps} {allocation_map} />
-
+    <Sidebar slot="sidebar" {allocation_map} />
+    <Employee_List slot="content" employees={emps} {allocation_map} />
 
 </AppShell>
+
+<style>
+
+</style>

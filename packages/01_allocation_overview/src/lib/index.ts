@@ -4,7 +4,6 @@ import * as pkg from "../../package.json"
 
 
 export default function init (): void {
-	console.log("import", import.meta)
     // exception: to bootstrap svelte
     // eslint-disable-next-line no-new
     new App({

@@ -133,7 +133,6 @@ suite("time_entry", () => {
                 d.setMinutes(minutes)
                 d.setHours(hours)
                 const slot = date_to_slot(d, tc.start_hour, tc.step_in_minutes)
-                // console.log({level:"test", msg:"there and back", mins, now: new Date().toLocaleTimeString("de"), date: d.toLocaleTimeString("de-DE"), slot})
                 expect(slot).toEqual(tc.slot)
             })
         }
