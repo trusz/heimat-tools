@@ -1,0 +1,15 @@
+name: "Package: Recruiting"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/recruiting/**"
+jobs:
+  build:
+    uses: "./.github/workflows/build.yml"
+    with:
+      package-name: recruiting
+    secrets:
+      BUILD_TOKEN: ${{ secrets.GITHUB_TOKEN }}
