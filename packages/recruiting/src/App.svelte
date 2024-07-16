@@ -24,20 +24,24 @@
 </main>
 
 <style>
-  ul{
-	list-style-type: none;
-	padding: 0;
-	display: flex;
-	flex-direction: row;
-	gap:0.5rem;
-  }
-  a{
-	font-size: 0.9rem;
-	padding: 0.2rem 0.5rem;
-	margin: 0;
-	transition: none;
-	color: white;
-  }
+	ul{
+		list-style-type: none;
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		gap:0.5rem;
+	}
+	a{
+		font-size: 0.9rem;
+		padding: 0.2rem 0.5rem;
+		margin: 0;
+		transition: none;
+		color: white;
+	}
+	a.a-button--accent{
+		color: black;
+	}
+
   
 </style>
 
