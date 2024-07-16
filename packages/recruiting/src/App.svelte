@@ -36,6 +36,7 @@
 	padding: 0.2rem 0.5rem;
 	margin: 0;
 	transition: none;
+	color: white;
   }
   
 </style>
