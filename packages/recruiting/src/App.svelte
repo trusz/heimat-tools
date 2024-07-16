@@ -67,6 +67,7 @@
 			const config = determineConfig(statuses, normalizedRowStatus)
 			if(!config){
 				console.error({"level":"error", msg:"could not determine config", row, normalizedRowStatus})
+				continue
 			}
 			if(config.selected){
 				row.style.display = "block"
@@ -86,6 +87,7 @@
 		key: Status
 	}
 	enum Status {
+		New = "New",
 		Reject = "Reject",
 		PhoneInterview = "PhoneInterview",
 		Interview = "Interview",
@@ -97,10 +99,12 @@
 		PhoneInterview: {name: "Phone Interview", selected: true, key: Status.PhoneInterview},
 		Interview: {name: "Interview", selected: true, key: Status.Interview},
 		Hospitation: {name: "Hospitation", selected: true, key: Status.Hospitation},
+
 	}
 	type StatusConfig = typeof statusConfigs
 
 	const rowStatusStatusObjMap: {[key: string]: Status} = {
+		"new": Status.New,
 		"reject": Status.Reject,
 		"phone interview": Status.PhoneInterview,
 		"interview": Status.Interview,
