@@ -49,6 +49,8 @@
     const styleURL = cssURL.toString()
 
 	function toggle(status: StatusObj){
+		if(!status){ return }
+
 		status.selected = !status.selected
 		statusConfigs = {...statusConfigs}
 	}
@@ -63,6 +65,9 @@
 			const normalizedRowStatus = rowStatus.toLocaleLowerCase().trim()
 
 			const config = determineConfig(statuses, normalizedRowStatus)
+			if(!config){
+				console.error({"level":"error", msg:"could not determine config", row, normalizedRowStatus})
+			}
 			if(config.selected){
 				row.style.display = "block"
 			}else{
