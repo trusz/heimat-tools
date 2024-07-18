@@ -103,8 +103,51 @@ importers:
         specifier: ^0.27.0
         version: 0.27.0(sass@1.77.8)
 
+  packages/news:
+    dependencies:
+      '@heimtools/api':
+        specifier: ../api
+        version: link:../api
+      '@popperjs/core':
+        specifier: ^2.11.8
+        version: 2.11.8
+      bootstrap:
+        specifier: ^5.3.3
+        version: 5.3.3(@popperjs/core@2.11.8)
+    devDependencies:
+      '@sveltejs/vite-plugin-svelte':
+        specifier: ^3.1.1
+        version: 3.1.1(svelte@4.2.18)(vite@5.3.3(@types/node@20.10.4)(sass@1.77.8))
+      '@tsconfig/svelte':
+        specifier: ^5.0.4
+        version: 5.0.4
+      concurrently:
+        specifier: ^8.2.2
+        version: 8.2.2
+      sass:
+        specifier: ^1.77.8
+        version: 1.77.8
+      svelte:
+        specifier: ^4.2.18
+        version: 4.2.18
+      svelte-check:
+        specifier: ^3.8.1
+        version: 3.8.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sass@1.77.8)(svelte@4.2.18)
+      tslib:
+        specifier: ^2.6.3
+        version: 2.6.3
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
+      vite:
+        specifier: ^5.3.1
+        version: 5.3.3(@types/node@20.10.4)(sass@1.77.8)
+
   packages/recruiting:
     dependencies:
+      '@heimtools/api':
+        specifier: ../api
+        version: link:../api
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8
@@ -2068,7 +2111,7 @@ snapshots:
       debug: 4.3.4
       deepmerge: 4.3.1
       kleur: 4.1.5
-      magic-string: 0.30.5
+      magic-string: 0.30.10
       svelte: 4.2.7
       svelte-hmr: 0.15.3(svelte@4.2.7)
       vite: 4.5.1(@types/node@20.10.4)(sass@1.77.8)
@@ -2298,7 +2341,7 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   cssesc@3.0.0: {}
 
@@ -2917,7 +2960,7 @@ snapshots:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.20
       chokidar: 3.5.3
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       sade: 1.8.1
       svelte: 4.2.18
       svelte-preprocess: 5.1.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sass@1.77.8)(svelte@4.2.18)(typescript@5.2.2)
@@ -2959,7 +3002,7 @@ snapshots:
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
-      magic-string: 0.30.5
+      magic-string: 0.30.10
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.18
@@ -2992,7 +3035,7 @@ snapshots:
       estree-walker: 3.0.3
       is-reference: 3.0.2
       locate-character: 3.0.0
-      magic-string: 0.30.5
+      magic-string: 0.30.10
       periscopic: 3.1.0
 
   svelte@4.2.7:
@@ -3102,7 +3145,7 @@ snapshots:
     dependencies:
       browserslist: 4.22.2
       escalade: 3.1.1
-      picocolors: 1.0.0
+      picocolors: 1.0.1
 
   util-deprecate@1.0.2: {}
 
@@ -3112,7 +3155,7 @@ snapshots:
       debug: 4.3.4
       mlly: 1.4.2
       pathe: 0.2.0
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       source-map: 0.6.1
       source-map-support: 0.5.21
       vite: 4.5.1(@types/node@20.10.4)(sass@1.77.8)
