@@ -55,7 +55,6 @@
     import type { Allocation, Project_Details } from "@heimtools/api";
 	import {api} from "./api"
 	import "./bootstrap.min.css"
-    // import { waitForElement } from "./util";
 
 	// Load our style
 	const baseURL = new URL(import.meta.url)
