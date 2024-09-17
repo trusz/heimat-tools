@@ -48,9 +48,6 @@
 
 <script lang="ts">
 
-	import {} from "@"
-
-
 	const baseURL = new URL(import.meta.url)
     const cssURL = new URL("style.css", baseURL)
     const styleURL = cssURL.toString()
