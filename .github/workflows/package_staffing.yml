@@ -1,4 +1,4 @@
-name: "Package: Recruiting"
+name: "Package: Staffing"
 on:
   workflow_dispatch:
   push:
