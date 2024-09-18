@@ -3,25 +3,27 @@
     
 	let params = new URLSearchParams(document.location.search); 
 	
-	const module_name = params.get("module");
+	let module_name = params.get("module");
 	if(!module_name){ 
 		console.error("no module given, stopping")
 		return
 	}
 
-	const heimat_base_url = "https://heimat.sprinteins.com"
 	let heimat_module_path = params.get("heimat_module_path")
 	if(!heimat_module_path){
 		console.error("no heimat module path given, stopping")
 		return
 	}
+	heimat_module_path = atob(heimat_module_path)
 
-	const root_selector = params.get("root_selector")
+	let root_selector = params.get("root_selector")
 	if(!root_selector){
 		console.error("no root selector given, stopping")
 		return
 	}
+	root_selector = atob(root_selector)
 
+	const heimat_base_url = "https://heimat.sprinteins.com"
 	const module_url = generate_module_url(module_name)
     const target_url = `${heimat_base_url}/${heimat_module_path}`
 
@@ -37,16 +39,16 @@
 	return new Promise((resolve) => {
 		const element = document.querySelector(selector)
 
-		if (is_visible(element) && is_current_url_equal(url)) {
+		if (isVisible(element) && isCurrentURLEqual(url)) {
 			resolve(element)
 			return
 		}
 
 		const observer = new MutationObserver((mutations) => {
-            if(!is_current_url_equal(url)){ return; }
+            if(!isCurrentURLEqual(url)){ return; }
 
 			const targetElement = document.querySelector(selector)
-			if (targetElement && is_visible(targetElement)) {
+			if (targetElement && isVisible(targetElement)) {
 				observer.disconnect()
 				resolve(targetElement)
 			}
@@ -57,7 +59,7 @@
    }
 
 
-    function is_current_url_equal(url){
+    function isCurrentURLEqual(url){
         const {origin, pathname} = window.location
         const currentURL = origin+pathname
 
@@ -65,7 +67,7 @@
     }
 
 
-    function is_visible(element) {
+    function isVisible(element) {
         if (!element) {
             return false;
         }
