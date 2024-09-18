@@ -10,7 +10,7 @@ function init (): void {
     // exception: to bootstrap svelte
     // eslint-disable-next-line no-new
     new App({
-        target: document.getElementById('app')!,
+        target: document.getElementById('heimat-tool')!,
         props:  {},
     })
 }

@@ -45,6 +45,7 @@
 </main>
 
 <style>
+	@import url("./bootstrap.min.css");
 	main{
 		margin: 20px;
 	}
@@ -54,7 +55,6 @@
 <script lang="ts">
     import type { Allocation, Project_Details } from "@heimtools/api";
 	import {api} from "./api"
-	import "./bootstrap.min.css"
 
 	// Load our style
 	const baseURL = new URL(import.meta.url)
