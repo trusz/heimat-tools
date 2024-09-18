@@ -1,0 +1,15 @@
+name: "Package: Module Loader"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/module_loader/**"
+jobs:
+  build:
+    uses: "./.github/workflows/build.yml"
+    with:
+      package-name: module_loader
+    secrets:
+      BUILD_TOKEN: ${{ secrets.GITHUB_TOKEN }}

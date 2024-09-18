@@ -1,0 +1,13 @@
+{
+	"name": "@heimattools/module_loader",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "mkdir dist && cp index.js ./dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
