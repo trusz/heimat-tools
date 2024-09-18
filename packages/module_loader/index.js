@@ -1,7 +1,7 @@
 (async function() {
     'use strict';
     
-	let params = new URLSearchParams(document.location.search); 
+	let params = new URLSearchParams(import.meta.url); 
 	
 	let module_name = params.get("module");
 	if(!module_name){ 
