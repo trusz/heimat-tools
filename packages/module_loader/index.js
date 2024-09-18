@@ -1,14 +1,15 @@
 (async function() {
     'use strict';
     
-	const url = import.meta.url
+	const url = new URL(import.meta.url)
 
-	let params = new URLSearchParams(url); 
+	let params = new URLSearchParams(url.search); 
 
 	console.log("url", url)
 	console.log("params", params)
 	
 	let module_name = params.get("module");
+	console.log()
 	if(!module_name){ 
 		console.error("no module given, stopping")
 		return
