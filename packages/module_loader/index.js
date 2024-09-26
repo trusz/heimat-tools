@@ -2,14 +2,19 @@
     'use strict';
     
 	const url = new URL(import.meta.url)
+	const default_module_base_url = "https://tamasruss.com/heimat-tools/packages"
 
 	let params = new URLSearchParams(url.search); 
 
 	console.log("url", url)
 	console.log("params", params)
+
+	let module_base_url = params.get("module_base_url")
+	if(!module_base_url){
+		module_base_url = default_module_base_url
+	}
 	
 	let module_name = params.get("module");
-	console.log()
 	if(!module_name){ 
 		console.error("no module given, stopping")
 		return
