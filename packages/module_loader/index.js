@@ -35,7 +35,7 @@
 	root_selector = atob(root_selector)
 
 	const heimat_base_url = "https://heimat.sprinteins.com"
-	const module_url = generate_module_url(module_name)
+	const module_url = generate_module_url(module_base_url, module_name)
     const target_url = `${heimat_base_url}/${heimat_module_path}`
 
     await wait_for_element_and_url(root_selector, target_url)
@@ -114,11 +114,10 @@
  * @param {string} module 
  * @returns string
  */
-function generate_module_url(module){
-	const base_url = "https://tamasruss.com/heimat-tools/packages"
+function generate_module_url(module_base_url, module){
 	const file = "index.js"
 
-	const module_url = `${base_url}/${module}/${file}`
+	const module_url = `${module_base_url}/${module}/${file}`
 
 	return module_url
 }
