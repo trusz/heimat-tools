@@ -13,6 +13,7 @@
 	if(!module_base_url){
 		module_base_url = default_module_base_url
 	}
+	module_base_url = atob(module_base_url)
 	
 	let module_name = params.get("module");
 	if(!module_name){ 
