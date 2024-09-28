@@ -1,4 +1,3 @@
-import { date_format_iso } from "../x/date"
 import { type HTTP } from "../x/http"
 import { Project_Details } from "./project_details"
 import type { Project_Allocation, Project_v2 } from "./project_v2"
@@ -68,10 +67,23 @@ type Response_Project_Details = {
 	name:  string
 	plannedAllocations: Response_Allocation[]
 	unstaffedAllocations: Response_Allocation[]
+	customFields: Response_CustomField[]
 }
 type Response_Allocation = {
 	id: number
 	projectRole: string
+	start: string
+	end: string
+}
+
+type Response_CustomField = {
+	id: number
+	definitionId: number
+	name: string
+	optionValue: {
+		id: number
+		value: string
+	}
 }
 
 
@@ -82,7 +94,8 @@ function project_detail_from_response (resp: Response_Project_Details): Project_
 		allocations: [
 			...resp.plannedAllocations.map((a) => allocation_from_response(a,true)),
 			...resp.unstaffedAllocations.map((a) => allocation_from_response(a,false)),
-		]
+		],
+		priority: find_priority(resp),
 	}
 
 	return project_details
@@ -93,6 +106,15 @@ function allocation_from_response(resp: Response_Allocation, is_staffed: boolean
 	return {
 		id: resp.id,
 		project_role: resp.projectRole,
-		is_staffed: is_staffed
+		is_staffed: is_staffed,
+		start: new Date(resp.start),
+		end: new Date(resp.end),
 	}
+}
+
+function find_priority(resp: Response_Project_Details): string {
+	const priority_field = resp.customFields.find((cf) => cf.name === "Priorität")
+	const value = priority_field?.optionValue?.value
+
+	return value ?? "?"
 }
